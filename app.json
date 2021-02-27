@@ -1,0 +1,12 @@
+{
+  "name": "justEat",
+  "displayName": "justEat",
+  "expo": {
+    "name": "justEat",
+    "slug": "justEat",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
