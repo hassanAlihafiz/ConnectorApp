@@ -1,9 +1,9 @@
 {
-  "name": "justEat",
-  "displayName": "justEat",
+  "name": "ErshadApp",
+  "displayName": "ErshadApp",
   "expo": {
-    "name": "justEat",
-    "slug": "justEat",
+    "name": "ErshadApp",
+    "slug": "ErshadApp",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

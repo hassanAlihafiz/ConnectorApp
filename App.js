@@ -1,71 +1,64 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import SplashScreen from "./components/SplashScreen";
-import Resutrants from "./components/Resturants";
-import Orders from "./components/Orders";
-import Settings from "./components/Settings";
-import ForYou from "./components/ForYou";
-import Login from "./screens/LoginModal";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
-const Tab = createBottomTabNavigator();
-export default function App() {
-  const [state, changeState] = useState("SplashScreen");
-  useEffect(() => {
-    setTimeout(() => {
-      changeState("Resturants");
-    }, 6000);
-  });
-  if (state == "SplashScreen") {
-    return <SplashScreen />;
-  } else {
-    return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
+import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 
-                if (route.name === "Home") {
-                  iconName = focused ? "home" : "home-outline";
-                } else if (route.name === "Account") {
-                  iconName = focused ? "person" : "person-outline";
-                } else if (route.name === "Orders") {
-                  iconName = focused ? "receipt" : "receipt-outline";
-                } else if (route.name === "For you") {
-                  iconName = focused ? "gift" : "gift-outline";
-                }
+import themeColor from './assets/Color/colors';
 
-                // You can return any component that you like here!
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-            })}
-            tabBarOptions={{
-              activeTintColor: "#D86F04",
-              inactiveTintColor: "green",
-            }}
-          >
-            <Tab.Screen name="Home" component={Resutrants} />
-            <Tab.Screen name="For you" component={ForYou} />
-            <Tab.Screen name="Orders" component={Orders} />
-            <Tab.Screen name="Account" component={Settings} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </>
-    );
-  }
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import ForgotPassword from './components/ForgotPassword';
+import About from './components/AboutUs';
+import HomeScreen from './components/HomeScreen';
+import CustomSidebar from "./components/CustomeMenuBar"
+import Header from "./components/HeaderIcon"
+const DrawerTab=createDrawerNavigator()
+
+const Drawer=({navigation})=>{
+  return(
+     <DrawerTab.Navigator
+  screenOptions={{
+    drawerStyle: {
+      width: 240,
+   
+    },
+  }}
+        drawerContent={(props) => <CustomSidebar {...props} />}>
+        <DrawerTab.Screen
+          name="Home"
+          options={{
+            drawerLabel: 'Home',
+          }}
+          component={HomeScreen}
+         
+        />     
+        <DrawerTab.Screen
+          name="About"
+          options={{
+            drawerLabel: 'About',
+          
+            activeTintColor: '#FF6F00',
+          }}
+          component={About}
+         
+        />     
+      </DrawerTab.Navigator>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FF8C00",
+const Stack = createStackNavigator();
 
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default function App() {
+  return (
+   <NavigationContainer>
+ <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
+      <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }}/>
+      <Stack.Screen name="About Us" component={About} options={{ headerShown: false }}/>
+       <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }}/>
+ <Stack.Screen name="Home" component={Drawer} options={{ headerShown: false }}/>
+    </Stack.Navigator>
+ </NavigationContainer>
+  );
+}
