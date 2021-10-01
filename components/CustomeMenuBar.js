@@ -14,7 +14,7 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import themeColor from '../assets/Color/colors';
-import firebase from "../config/firebase"
+// import firebase from "../config/firebase"
 const CustomSidebarMenu = (props) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: themeColor.PRIMARY }}>

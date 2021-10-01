@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, FlatList, Platform } from 'react-native';
 import Constants from 'expo-constants';
 import themeColor from '../assets/Color/colors';
 import DropDownPicker from 'react-native-dropdown-picker';
-import MapView, { PROVIDER_GOOGLE, Marker,PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker,PROVIDER_DEFAULT } from'react-native-maps';
 import { FontAwesome } from '@expo/vector-icons';
 export default function App() {
   fetch('https://chargepoints.dft.gov.uk/api/retrieve/registry/format/json')
