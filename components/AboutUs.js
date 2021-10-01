@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, Image ,Dimensions} from 'react-native';
 import themeColor from '../assets/Color/colors';
 const AboutUs = () => {
+  
   return (
     <View style={styles.container}>
      <View style={{marginTop:"10%"}}>
