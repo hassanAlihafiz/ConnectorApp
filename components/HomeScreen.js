@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, FlatList, Platform } from 'react-native';
-import Constants from 'expo-constants';
 import themeColor from '../assets/Color/colors';
 import DropDownPicker from 'react-native-dropdown-picker';
 import MapView, { PROVIDER_GOOGLE, Marker,PROVIDER_DEFAULT } from'react-native-maps';
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: "10%",
     backgroundColor: themeColor.PRIMARY,
     padding: 8,
   },
