@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     width: Devicewidth - 100,
     backgroundColor: "#fff",
     borderRadius: 20,
-    height: 240,
+    height: 230,
     margin: 5,
   },
   imageStyle: {
